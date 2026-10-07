@@ -1,0 +1,22 @@
+{
+  "name": "farmacia-roca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio institucional de Farmacia Roca",
+  "scripts": {
+    "build": "sass SCSS/style.scss css/style.css --style=expanded",
+    "watch": "sass --watch SCSS/style.scss:css/style.css",
+    "check": "html-validate index.html \"html/*.html\"",
+    "test": "html-validate index.html \"html/*.html\"",
+    "start": "http-server . -a 127.0.0.1 -p 8080 -c-1"
+  },
+  "devDependencies": {
+    "sass": "1.93.2",
+    "html-validate": "10.1.0",
+    "http-server": "14.1.1"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
