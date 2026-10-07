@@ -1,0 +1,7 @@
+@use "../utilities/variables" as v;
+.footer-container { background: v.$surface; padding-bottom: 5rem; border-top: 1px solid #dbe5e7; }
+.footer-section { margin-bottom: 1rem; overflow-wrap: anywhere; }
+.footer-heading { font-size: 1.15rem; font-weight: 700; }
+.footer-container a { display: inline-block; padding-block: .35rem; }
+.footer-credits { color: #43545d; font-size: .875rem; }
+.mapa-container iframe { border-radius: 1rem; display: block; }

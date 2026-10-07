@@ -1,0 +1,7 @@
+@use "../utilities/variables" as v;
+.main-inicio { padding-top: 0; }
+.hero-section { background: linear-gradient(120deg, #eff8f4, #edf4fa); }
+.hero-section h1 { max-width: 14ch; }
+.hero-section .btn { margin: .5rem .5rem .5rem 0; }
+.hero-section img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 767px) { .hero-section .btn { display: block; margin-right: 0; } .hero-section img { margin-top: 1.5rem; } }
