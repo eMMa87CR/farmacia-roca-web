@@ -1,0 +1,5 @@
+.card { border: 1px solid #dbe5e7; border-radius: 1rem; overflow: hidden; }
+.card .card-body { padding: 1.5rem; }
+.card-title { font-size: 1.35rem; }
+.hover-animate { transition: transform .2s ease, box-shadow .2s ease; }
+.hover-animate:hover, .hover-animate:focus-within { transform: translateY(-4px); box-shadow: 0 8px 24px #0002; }

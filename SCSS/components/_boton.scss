@@ -1,0 +1,7 @@
+@use "../utilities/variables" as v;
+.btn-primary { --bs-btn-bg: #{v.$primary}; --bs-btn-border-color: #{v.$primary}; --bs-btn-hover-bg: #004958; --bs-btn-hover-border-color: #004958; --bs-btn-active-bg: #004958; --bs-btn-active-border-color: #004958; }
+.btn-success { --bs-btn-bg: #{v.$green}; --bs-btn-border-color: #{v.$green}; }
+.boton-flotante, .whatsapp-flotante { position: fixed; bottom: 1rem; z-index: 1020; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: white; border-radius: 2rem; box-shadow: 0 3px 12px #0003; text-decoration: none; }
+.boton-flotante { right: 1rem; width: 48px; background: v.$primary; }
+.whatsapp-flotante { left: 1rem; padding: .75rem 1.25rem; background: v.$green; font-weight: 700; }
+.boton-flotante:hover, .whatsapp-flotante:hover { color: white; filter: brightness(.9); }
