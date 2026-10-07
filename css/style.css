@@ -1229,5 +1229,198 @@ p {
     animation: none !important;
   }
 }
+/* Logo y contenido editorial de consejos. */
+.site-header .navbar-brand img {
+  width: 230px;
+  height: 72px;
+}
+
+.tips-content {
+  padding-bottom: 50px;
+}
+
+.tips-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 38px;
+}
+
+.tips-nav a {
+  background: #eef1e6;
+  border: 1px solid #dce3d7;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.tips-nav a:hover {
+  background: #c8e59b;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.tip-article {
+  background: #fff;
+  border: 1px solid #e2e8dc;
+  border-radius: 22px;
+  padding: 36px;
+  scroll-margin-top: 155px;
+}
+
+.tip-article h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 18px;
+  max-width: 380px;
+}
+
+.tip-article .eyebrow {
+  margin-bottom: 18px;
+}
+
+.tip-article p, .tip-article li {
+  font-size: 0.92rem;
+}
+
+.tip-article ul {
+  padding-left: 20px;
+  margin: 24px 0;
+  color: #596a6d;
+}
+
+.tip-article li {
+  padding-left: 6px;
+  margin-bottom: 14px;
+}
+
+.tip-takeaway {
+  padding: 18px;
+  border-radius: 12px;
+  background: #eef3e6;
+  color: #163b43;
+}
+
+.tip-source {
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-top: 12px;
+}
+
+.tip-warm {
+  background: #f6f1e6;
+}
+
+.tip-cool {
+  background: #eaf2f1;
+}
+
+.tips-faq {
+  margin: 65px 0;
+  max-width: 920px;
+}
+
+.tips-faq h2 {
+  margin-bottom: 30px;
+}
+
+.tips-faq details {
+  border-bottom: 1px solid #dce3d7;
+  padding-block: 20px;
+}
+
+.tips-faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tips-faq details p {
+  margin: 16px 0 0;
+  max-width: 760px;
+  font-size: 0.9rem;
+}
+
+.tips-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: #e9eedf;
+  border-radius: 22px;
+  padding: 36px;
+}
+
+.tips-contact h2 {
+  font-size: 2rem;
+}
+
+.tips-contact p:last-child {
+  margin-bottom: 0;
+}
+
+.tips-contact .btn {
+  flex-shrink: 0;
+}
+
+.tips-note {
+  font-size: 0.75rem;
+  max-width: 850px;
+  margin: 26px 0 0;
+}
+
+.service-detail .row {
+  row-gap: 24px;
+}
+
+.service-detail .card img.service-art {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: 16px;
+}
+
+@media (min-width: 992px) {
+  .site-header .navbar-brand img {
+    width: 280px;
+    height: 84px;
+  }
+  .navbar-nav {
+    gap: 18px;
+    margin-right: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .site-header .navbar-brand img {
+    width: 194px;
+    height: 62px;
+  }
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  .tip-article {
+    padding: 26px;
+    scroll-margin-top: 125px;
+  }
+  .tips-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+  }
+  .tips-contact .btn {
+    width: 100%;
+  }
+  .tips-nav {
+    gap: 8px;
+  }
+  .tips-nav a {
+    padding: 9px 14px;
+    font-size: 0.78rem;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
