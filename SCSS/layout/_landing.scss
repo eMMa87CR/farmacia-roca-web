@@ -1,0 +1,241 @@
+// Landing de inicio. Aplica la skill landing-page-design (parte B).
+// Clases nuevas para el index; solo se ajusta lo compartido (fuente, botones, cabecera y pie).
+@use "../utilities/tokens" as *;
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/manrope-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Base compartida */
+html { scroll-padding-top: calc(#{space(800)} + #{space(500)}); }
+body.mi-body { font-family: "Manrope", system-ui, sans-serif; @include text(base); }
+em, i, cite { font-style: normal; }
+.container { padding-inline: space(300); }
+h1, h2, h3 { text-wrap: balance; }
+p, li, dd { text-wrap: pretty; }
+
+.ph-icon { width: space(300); height: space(300); fill: currentColor; flex-shrink: 0; vertical-align: middle; }
+
+/* Botones: 8px y 12px de relleno, texto base semibold */
+.btn {
+  @include text(base);
+  font-weight: 600;
+  gap: space(75);
+  padding: space(75) space(100);
+  border-radius: radius("lg");
+  transition: background-color $move $ease, border-color $move $ease, color $move $ease, transform $move $ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn .ph-icon { transition: transform $move $ease; }
+.btn:hover .ph-icon { transform: translateX(space(50)); }
+
+.text-link {
+  @include text(sm);
+  gap: space(75);
+  transition: color $move $ease;
+}
+.text-link:active { transform: translateY(1px); }
+.text-link .ph-icon { width: space(200); height: space(200); transition: transform $move $ease; }
+.text-link:hover .ph-icon { transform: translateX(space(50)); }
+
+/* Cabecera y pie compartidos */
+.topbar { @include text(xs); }
+.topbar .container { padding-block: space(75); }
+.topbar span, .topbar a { gap: space(75); }
+.topbar .ph-icon { width: space(200); height: space(200); }
+.navbar-custom { padding-block: space(200); }
+.navbar-nav { gap: space(300); margin-right: space(400); }
+.navbar-custom .nav-link { @include text(sm); padding: space(100) 0 !important; transition: color $move $ease; }
+.nav-contact { @include text(sm); padding: space(75) space(100); }
+
+.footer-container { padding: space(700) 0 space(300); }
+.footer-grid { gap: space(600); }
+.footer-brand p { @include text(sm); margin-top: space(200); }
+.footer-location { @include text(xs); }
+.footer-heading { @include text(sm); margin: space(200) 0 space(300); }
+.footer-grid > div:not(.footer-brand) a { @include text(sm); margin-bottom: space(100); display: flex; align-items: center; gap: space(75); }
+.footer-grid a .ph-icon { width: space(200); height: space(200); }
+.footer-bottom { @include text(xs); gap: space(200); padding-top: space(300); margin-top: space(600); }
+.footer-bottom a { display: inline-flex; align-items: center; gap: space(75); }
+
+.whatsapp-flotante {
+  @include text(sm);
+  right: space(300);
+  bottom: space(300);
+  gap: space(75);
+  padding: space(100) space(200);
+  border-radius: radius("full");
+  transition: background-color $move $ease, transform $move $ease;
+}
+.whatsapp-flotante:active { transform: scale(0.98); }
+
+/* Revelado al entrar en pantalla (se activa solo si hay JavaScript) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(space(700));
+  filter: blur(12px);
+  transition: opacity $reveal $ease, transform $reveal $ease, filter $reveal $ease;
+  transition-delay: calc(var(--i, 0) * 100ms);
+}
+.js .reveal.is-visible { opacity: 1; transform: none; filter: none; }
+
+/* Secciones de la landing */
+.main-inicio {
+  .section { padding-block: space(900); }
+  .section-sage { background: $sage; }
+  .section-soft { background: $sage-soft; }
+  .section-head { max-width: 680px; margin-bottom: space(600); }
+  .section-head h2 { @include text("4xl"); margin-bottom: space(200); }
+  .section-head p { @include text(lg); margin: 0; }
+
+  /* Hero */
+  .hero { padding-block: space(700) space(800); }
+  .hero-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: space(700); align-items: center; }
+  .hero h1 {
+    @include text("4xl");
+    max-width: 680px;
+    margin-bottom: space(300);
+    letter-spacing: -0.04em;
+    background: linear-gradient(90deg, #000000 0%, #666666 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-description { @include text(lg); max-width: 680px; margin-bottom: space(400); }
+  .hero-hours { display: flex; align-items: flex-start; gap: space(75); margin: space(300) 0 0; @include text(sm); }
+  .hero-hours .ph-icon { width: space(200); height: space(200); margin-top: space(25); }
+  .hero-proof { display: flex; align-items: center; gap: space(200); margin-top: space(500); }
+  .proof-icon { display: grid; place-items: center; width: space(600); height: space(600); border-radius: radius("full"); background: $sage; color: $navy; }
+  .hero-proof p { margin: 0; @include text(sm); }
+  .hero-proof strong { display: block; @include text(base); color: $navy; font-weight: 600; }
+  .hero-figure { margin: 0; min-width: 0; }
+  .hero-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: radius("2xl"); }
+
+  /* Beneficios */
+  .benefits-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: space(700); align-items: start; }
+  .benefits-grid .section-head { margin-bottom: 0; }
+  .benefit-list { display: grid; gap: space(200); list-style: none; padding: 0; margin: 0; }
+  .benefit {
+    display: grid;
+    grid-template-columns: space(600) minmax(0, 1fr);
+    gap: space(200);
+    padding: space(300);
+    background: #ffffff;
+    border: 1px solid $line;
+    border-radius: radius("2xl");
+    transition: border-color $move $ease, transform $move $ease;
+  }
+  .benefit:hover { border-color: $navy; transform: translateY(-#{space(50)}); }
+  .benefit-icon { display: grid; place-items: center; width: space(600); height: space(600); border-radius: radius("xl"); background: $sage; color: $navy; }
+  .benefit-icon .ph-icon { width: space(300); height: space(300); }
+  .benefit h3 { @include text(xl); margin: 0 0 space(50); }
+  .benefit p { @include text(base); margin: 0; }
+
+  /* Cómo funciona */
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: space(300); list-style: none; padding: 0; margin: 0; }
+  .step { padding: space(400); background: #ffffff; border: 1px solid $line; border-radius: radius("2xl"); }
+  .step-number { display: grid; place-items: center; width: space(600); height: space(600); margin-bottom: space(300); border-radius: radius("full"); background: $navy; color: #ffffff; @include text(xl); font-weight: 600; }
+  .step h3 { @include text(xl); margin-bottom: space(75); }
+  .step p { @include text(base); margin: 0; }
+
+  /* Tagline con revelado palabra por palabra */
+  .tagline p {
+    @include text("4xl");
+    max-width: 680px;
+    margin: 0;
+    color: $navy;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+  .tagline-word { transition: opacity 700ms $ease; }
+  .tagline.is-armed .tagline-word { opacity: 0.3; }
+  .tagline.is-armed .tagline-word.is-on { opacity: 1; }
+
+  /* Visita */
+  .visit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: space(700); align-items: center; }
+  .visit-grid h2 { @include text("4xl"); margin-bottom: space(300); }
+  .visit-lines { display: grid; gap: space(200); margin: 0 0 space(300); padding: 0; list-style: none; }
+  .visit-lines li { display: flex; align-items: flex-start; gap: space(100); @include text(base); }
+  .visit-lines strong { display: block; color: $navy; font-weight: 600; }
+  .visit-lines span { color: $muted; @include text(sm); }
+  .visit-lines a { text-decoration: none; }
+  .visit-lines a:hover { text-decoration: underline; }
+  .hours-card { background: $navy; color: #f3f5eb; border-radius: radius("2xl"); padding: space(400); }
+  .hours-card h3 { @include text("2xl"); color: #ffffff; margin-bottom: space(300); }
+  .hours-list { display: grid; gap: space(200); margin: 0 0 space(300); }
+  .hours-row { display: flex; justify-content: space-between; gap: space(200); flex-wrap: wrap; }
+  .hours-row dt { font-weight: 600; }
+  .hours-row dd { margin: 0; }
+  .hours-card p { @include text(sm); color: #c9d6d5; margin: 0; }
+
+  /* Preguntas frecuentes */
+  .faq-list { display: grid; gap: space(100); max-width: 840px; }
+  .faq-item { background: #ffffff; border: 1px solid $line; border-radius: radius("2xl"); transition: border-color $move $ease; }
+  .faq-item:hover { border-color: $navy; }
+  .faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: space(200);
+    padding: space(300);
+    border-radius: radius("2xl");
+    cursor: pointer;
+    list-style: none;
+    @include text(lg);
+    font-weight: 600;
+    color: $navy;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .ph-icon { transition: transform $move $ease; }
+  .faq-item[open] summary .ph-icon { transform: rotate(180deg); }
+  .faq-answer { padding: 0 space(300) space(300); }
+  .faq-answer p { @include text(base); margin: 0; max-width: 680px; }
+
+  /* Cierre */
+  .final-cta { text-align: center; }
+  .final-cta h2 { @include text("4xl"); max-width: 680px; margin: 0 auto space(200); }
+  .final-cta p { @include text(lg); max-width: 680px; margin: 0 auto space(400); }
+}
+
+@media (min-width: 768px) {
+  .main-inicio {
+    .hero h1 { @include text("5xl"); }
+    .section-head h2, .visit-grid h2, .final-cta h2 { @include text("5xl"); }
+    .tagline p { @include text("5xl"); }
+  }
+}
+
+@media (max-width: 991px) {
+  .main-inicio {
+    .hero-grid, .benefits-grid, .visit-grid { grid-template-columns: minmax(0, 1fr); gap: space(600); }
+    .steps { grid-template-columns: minmax(0, 1fr); }
+  }
+}
+
+@media (max-width: 767px) {
+  .main-inicio {
+    .section { padding-block: space(700); }
+    .hero { padding-block: space(500) space(700); }
+    .hero .btn { width: 100%; }
+    .hours-card { padding: space(300); }
+  }
+}
+
+/* Páginas de privacidad y 404 */
+.legal { max-width: 760px; padding-bottom: space(900); }
+.legal h2 { @include text("2xl"); margin: space(500) 0 space(100); }
+.legal p { @include text(base); }
+.legal .legal-date { @include text(sm); margin-top: space(500); }
+.not-found-actions { padding-bottom: space(900); }
+
+/* Movimiento reducido: todo se muestra de inmediato */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; filter: none; }
+  .main-inicio .tagline.is-armed .tagline-word { opacity: 1; }
+}
