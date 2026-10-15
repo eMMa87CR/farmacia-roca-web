@@ -1,0 +1,72 @@
+// Tokens de la skill landing-page-design (parte B).
+// Todo valor visual nuevo debe salir de este archivo.
+@use "sass:map";
+@use "sass:list";
+
+// Colores del sitio (tema claro)
+$navy: #163b43;
+$cream: #f8f8f2;
+$muted: #596a6d;
+$sage: #e9eedf;
+$sage-soft: #eef0e7;
+$lime: #c8e59b;
+$line: #dce3d7;
+
+// Espaciado: solo estos valores (B2)
+$space: (
+  0: 0,
+  25: 2px,
+  50: 4px,
+  75: 8px,
+  100: 12px,
+  200: 16px,
+  300: 24px,
+  400: 32px,
+  500: 40px,
+  600: 48px,
+  700: 64px,
+  800: 80px,
+  900: 96px,
+);
+
+@function space($key) {
+  @return map.get($space, $key);
+}
+
+// Escala tipográfica de Tailwind: tamaño y altura de línea (B1)
+$type: (
+  "xs": (0.75rem, 1rem),
+  "sm": (0.875rem, 1.25rem),
+  "base": (1rem, 1.5rem),
+  "lg": (1.125rem, 1.75rem),
+  "xl": (1.25rem, 1.75rem),
+  "2xl": (1.5rem, 2rem),
+  "3xl": (1.875rem, 2.25rem),
+  "4xl": (2.25rem, 2.5rem),
+  "5xl": (3rem, 1),
+  "6xl": (3.75rem, 1),
+);
+
+@mixin text($step) {
+  $pair: map.get($type, $step);
+  font-size: list.nth($pair, 1);
+  line-height: list.nth($pair, 2);
+}
+
+// Radios de Tailwind (B3)
+$radius: (
+  "lg": 0.5rem,
+  "xl": 0.75rem,
+  "2xl": 1rem,
+  "3xl": 1.5rem,
+  "full": 9999px,
+);
+
+@function radius($key) {
+  @return map.get($radius, $key);
+}
+
+// Curva de movimiento (B7)
+$ease: cubic-bezier(0.32, 0.72, 0, 1);
+$move: 500ms;
+$reveal: 900ms;
