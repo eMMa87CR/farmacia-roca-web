@@ -74,15 +74,16 @@ p, li, dd { text-wrap: pretty; }
 }
 .whatsapp-flotante:active { transform: scale(0.98); }
 
-/* Revelado al entrar en pantalla (se activa solo si hay JavaScript) */
-.js .reveal {
+/* Revelado al entrar en pantalla. Solo se oculta mientras el script esté activo:
+   si site.js no carga o está en caché viejo, el HTML pone js-failed y todo se muestra. */
+.js:not(.js-failed) .reveal {
   opacity: 0;
   transform: translateY(space(700));
   filter: blur(12px);
   transition: opacity $reveal $ease, transform $reveal $ease, filter $reveal $ease;
   transition-delay: calc(var(--i, 0) * 100ms);
 }
-.js .reveal.is-visible { opacity: 1; transform: none; filter: none; }
+.js:not(.js-failed) .reveal.is-visible { opacity: 1; transform: none; filter: none; }
 
 /* Secciones de la landing */
 .main-inicio {
@@ -123,15 +124,21 @@ p, li, dd { text-wrap: pretty; }
   .benefit-list { display: grid; gap: space(200); list-style: none; padding: 0; margin: 0; }
   .benefit {
     display: grid;
-    grid-template-columns: space(600) minmax(0, 1fr);
+    grid-template-columns: space(600) minmax(0, 1fr) auto;
+    align-items: center;
     gap: space(200);
     padding: space(300);
     background: #ffffff;
     border: 1px solid $line;
     border-radius: radius("2xl");
+    color: $navy;
+    text-decoration: none;
     transition: border-color $move $ease, transform $move $ease;
   }
-  .benefit:hover { border-color: $navy; transform: translateY(-#{space(50)}); }
+  .benefit:hover, .step:hover { color: $navy; border-color: $navy; transform: translateY(-#{space(50)}); }
+  .benefit:active, .step:active { transform: scale(0.98); }
+  .benefit-go { transition: transform $move $ease; }
+  .benefit:hover .benefit-go, .step:hover .step-go .ph-icon { transform: translateX(space(50)); }
   .benefit-icon { display: grid; place-items: center; width: space(600); height: space(600); border-radius: radius("xl"); background: $sage; color: $navy; }
   .benefit-icon .ph-icon { width: space(300); height: space(300); }
   .benefit h3 { @include text(xl); margin: 0 0 space(50); }
@@ -139,7 +146,21 @@ p, li, dd { text-wrap: pretty; }
 
   /* Cómo funciona */
   .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: space(300); list-style: none; padding: 0; margin: 0; }
-  .step { padding: space(400); background: #ffffff; border: 1px solid $line; border-radius: radius("2xl"); }
+  .step {
+    display: block;
+    height: 100%;
+    padding: space(400);
+    background: #ffffff;
+    border: 1px solid $line;
+    border-radius: radius("2xl");
+    color: $navy;
+    text-decoration: none;
+    transition: border-color $move $ease, transform $move $ease;
+  }
+  .steps > li { display: flex; }
+  .steps > li > .step { flex: 1; }
+  .step-go { display: inline-flex; align-items: center; gap: space(75); margin-top: space(300); @include text("sm"); font-weight: 600; color: $navy; }
+  .step-go .ph-icon { width: space(200); height: space(200); transition: transform $move $ease; }
   .step-number { display: grid; place-items: center; width: space(600); height: space(600); margin-bottom: space(300); border-radius: radius("full"); background: $navy; color: #ffffff; @include text(xl); font-weight: 600; }
   .step h3 { @include text(xl); margin-bottom: space(75); }
   .step p { @include text(base); margin: 0; }
@@ -236,6 +257,6 @@ p, li, dd { text-wrap: pretty; }
 
 /* Movimiento reducido: todo se muestra de inmediato */
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal { opacity: 1; transform: none; filter: none; }
+  .js:not(.js-failed) .reveal { opacity: 1; transform: none; filter: none; }
   .main-inicio .tagline.is-armed .tagline-word { opacity: 1; }
 }
