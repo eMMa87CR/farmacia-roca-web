@@ -74,15 +74,16 @@ p, li, dd { text-wrap: pretty; }
 }
 .whatsapp-flotante:active { transform: scale(0.98); }
 
-/* Revelado al entrar en pantalla (se activa solo si hay JavaScript) */
-.js .reveal {
+/* Revelado al entrar en pantalla. Solo se oculta mientras el script esté activo:
+   si site.js no carga o está en caché viejo, el HTML pone js-failed y todo se muestra. */
+.js:not(.js-failed) .reveal {
   opacity: 0;
   transform: translateY(space(700));
   filter: blur(12px);
   transition: opacity $reveal $ease, transform $reveal $ease, filter $reveal $ease;
   transition-delay: calc(var(--i, 0) * 100ms);
 }
-.js .reveal.is-visible { opacity: 1; transform: none; filter: none; }
+.js:not(.js-failed) .reveal.is-visible { opacity: 1; transform: none; filter: none; }
 
 /* Secciones de la landing */
 .main-inicio {
@@ -236,6 +237,6 @@ p, li, dd { text-wrap: pretty; }
 
 /* Movimiento reducido: todo se muestra de inmediato */
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal { opacity: 1; transform: none; filter: none; }
+  .js:not(.js-failed) .reveal { opacity: 1; transform: none; filter: none; }
   .main-inicio .tagline.is-armed .tagline-word { opacity: 1; }
 }

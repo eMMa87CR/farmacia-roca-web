@@ -28,6 +28,7 @@ if (form) {
 /* Revelado al entrar en pantalla y tagline palabra por palabra.
    Usan IntersectionObserver; no hay listeners de scroll. */
 (() => {
+  window.siteReady = true; // avisa al HTML que este script corrió (ver js-failed)
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const canObserve = "IntersectionObserver" in window && !reduceMotion;
 
