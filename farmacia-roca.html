@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farmacia Roca | Consultas por WhatsApp en Comodoro Rivadavia</title>
+<meta name="description" content="Farmacia Roca, Polonia 324, Comodoro Rivadavia. Consultá disponibilidad, recetas, obras sociales y envíos por WhatsApp.">
+<meta name="theme-color" content="#163b43">
+<link rel="icon" href="assets/img/logoFR.jpg">
+<style>
+@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-display:swap}
+
+:root{
+  --ink:#163b43;        /* verde petróleo de la marca */
+  --ink-2:#285b64;
+  --blue:#2f7fc1;       /* azul del logo */
+  --lime:#c8e59b;
+  --lime-2:#e9f5d6;
+  --heart:#d93a3a;
+  --paper:#fbfaf6;
+  --sand:#f3efe4;
+  --line:#dfe6e2;
+  --muted:#4f6a6f;
+  --wa:#1f9d55;
+  --wa-2:#178246;
+  --radius:18px;
+  --shadow:0 10px 30px -12px rgba(22,59,67,.28);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;font-size:1rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.12;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;font-size:1.02rem;text-decoration:none;border:2px solid transparent;transition:transform .18s ease,background-color .18s ease,box-shadow .18s ease;cursor:pointer}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 22px -10px rgba(31,157,85,.8)}
+.btn-wa:hover{background:var(--wa-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-block{width:100%}
+
+/* ---------- Header ---------- */
+.top{position:sticky;top:0;z-index:20;background:rgba(251,250,246,.92);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+.top.is-scrolled{border-color:var(--line);box-shadow:0 6px 20px -16px rgba(22,59,67,.5)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.brand img{height:38px;width:auto}
+.top-cta{min-height:42px;padding:.5rem 1rem;font-size:.92rem}
+.top-cta span{display:none}
+
+/* ---------- Hero ---------- */
+.hero{padding:28px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -30% -40% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--lime-2) 0%,rgba(233,245,214,0) 70%);z-index:-1}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);background:var(--lime-2);padding:.35rem .75rem;border-radius:999px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--heart);display:inline-block}
+.hero h1{font-size:clamp(2.1rem,8.6vw,3.6rem);font-weight:800;margin:16px 0 14px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero .lead{font-size:1.08rem;color:var(--muted);max-width:34rem}
+.hero-actions{display:flex;flex-direction:column;gap:10px;margin:24px 0 14px}
+.hero-note{font-size:.88rem;color:var(--muted)}
+.hero-photo{margin-top:28px;position:relative}
+.hero-photo figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:720/418;background:var(--ink)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- Secciones ---------- */
+.section{padding:56px 0}
+.section-soft{background:var(--sand)}
+.section-ink{background:var(--ink);color:#fff}
+.kicker{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:10px}
+.section-ink .kicker{color:var(--lime)}
+.section h2{font-size:clamp(1.65rem,6.4vw,2.5rem);font-weight:800;max-width:30rem}
+.section .intro{color:var(--muted);margin-top:12px;max-width:36rem}
+.section-ink .intro{color:#cfe0de}
+
+/* Beneficios */
+.benefits{display:grid;gap:12px;margin-top:28px;padding:0;list-style:none}
+.benefit{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.benefit .ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--lime-2);color:var(--ink)}
+.benefit .ico svg{width:24px;height:24px}
+.benefit h3{font-size:1.06rem;margin-bottom:4px}
+.benefit p{color:var(--muted);font-size:.96rem}
+
+/* Servicios */
+.services{display:grid;gap:14px;margin-top:28px}
+.service{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.service .media{aspect-ratio:16/10;background:var(--lime-2);overflow:hidden}
+.service .media img{width:100%;height:100%;object-fit:contain;background:#f4f6ee}
+.placeholder{display:grid;place-items:center;text-align:center;padding:20px;font-size:.9rem;font-weight:700;color:var(--ink-2);background:repeating-linear-gradient(135deg,var(--lime-2) 0 14px,#f4faea 14px 28px);border-bottom:1px dashed var(--lime)}
+.service .body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.service h3{font-size:1.12rem}
+.service p{color:var(--muted);font-size:.96rem}
+.service .more{margin-top:auto;padding-top:8px;font-weight:700;color:var(--wa-2);text-decoration:none;display:inline-flex;gap:.35rem;align-items:center}
+.service .more:hover{text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;padding:0;list-style:none}
+.chips li{font-size:.82rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;background:var(--sand);color:var(--ink-2)}
+
+/* Pasos */
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px;counter-reset:paso}
+.step{position:relative;padding:20px 20px 20px 72px;border-radius:var(--radius);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.step::before{counter-increment:paso;content:counter(paso);position:absolute;left:20px;top:20px;width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--ink);font-weight:800;display:grid;place-items:center}
+.step h3{font-size:1.08rem;margin-bottom:4px}
+.step p{color:#cfe0de;font-size:.96rem}
+
+/* FAQ */
+.faq{margin-top:24px;display:grid;gap:10px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px}
+.faq summary{list-style:none;cursor:pointer;padding:16px 28px 16px 0;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:2px;top:50%;width:10px;height:10px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding:0 0 16px;color:var(--muted)}
+
+/* Cierre */
+.closing{text-align:center}
+.closing h2{margin:0 auto}
+.closing .intro{margin:12px auto 0}
+.closing .btn{margin-top:24px}
+
+/* Contacto */
+.contact-grid{display:grid;gap:14px;margin-top:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card h3{font-size:1.08rem;margin-bottom:10px;display:flex;align-items:center;gap:.5rem}
+.card h3 svg{width:20px;height:20px;color:var(--blue)}
+.card p,.card li{color:var(--muted)}
+.card ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.card a{font-weight:700;color:var(--ink)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.hours dt{font-weight:700;color:var(--ink)}
+.hours dd{margin:0;color:var(--muted)}
+.card .btn{margin-top:14px}
+.secondary{border-style:dashed}
+.contact-grid+.contact-grid{margin-top:14px}
+.todo{display:inline-block;background:#fff4d6;color:#7a5200;border:1px dashed #d9a400;border-radius:6px;padding:.05rem .4rem;font-size:.9em;font-weight:700}
+
+/* Footer */
+.foot{background:var(--ink);color:#cfe0de;padding:36px 0 96px;font-size:.92rem}
+.foot .wrap{display:grid;gap:14px}
+.foot strong{color:#fff}
+.foot a{color:#fff}
+.foot small{color:#9fbab7}
+
+/* Reveal: visible por defecto; solo se oculta si JS cargó */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.is-in{opacity:1;transform:none}
+
+/* ---------- Tablet ---------- */
+@media (min-width:640px){
+  .wrap{padding:0 32px}
+  .hero-actions{flex-direction:row;flex-wrap:wrap}
+  .top-cta span{display:inline}
+  .benefits{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr 1fr}
+  .btn-block{width:auto}
+}
+/* ---------- Escritorio ---------- */
+@media (min-width:1024px){
+  .brand img{height:44px}
+  .hero{padding:56px 0 72px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .hero-photo{margin-top:0}
+  .section{padding:88px 0}
+  .benefits{grid-template-columns:repeat(4,1fr)}
+  .benefit{flex-direction:column}
+  .services{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .split .faq{margin-top:0}
+  .contact-grid{grid-template-columns:repeat(3,1fr)}
+  .form-card{grid-column:span 2}
+  .foot .wrap{grid-template-columns:1.2fr 1fr 1fr;align-items:start}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Farmacia Roca, inicio">
+      <img src="assets/img/Logo%20Farmacia%20Azul.png" alt="Farmacia Roca" width="546" height="135">
+    </a>
+    <a class="btn btn-wa top-cta" href="https://wa.me/542976211211?text=Hola%20Farmacia%20Roca%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+      <span>Escribinos por&nbsp;</span>WhatsApp
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO =====
+       Alternativa A (activa):
+         H1: Tu farmacia de barrio, ahora también por WhatsApp
+         Botón: Escribinos por WhatsApp
+       Alternativa B:
+         H1: Consultá antes de venir
+         Bajada: Preguntanos por WhatsApp si tenemos lo que buscás, si tu obra social lo cubre o si llega a tu casa.
+         Botón: Consultar por WhatsApp
+  -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><i aria-hidden="true"></i>Polonia 324 · Comodoro Rivadavia</span>
+        <h1 id="hero-titulo">Tu farmacia de barrio, <em>ahora también por WhatsApp</em></h1>
+        <p class="lead">Consultá disponibilidad, recetas, cobertura de tu obra social y envíos sin moverte de tu casa. Del otro lado te atiende el mismo equipo del mostrador.</p>
+        <div class="hero-actions">
+          <a class="btn btn-wa btn-block" href="https://wa.me/542976211211?text=Hola%20Farmacia%20Roca%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+          <a class="btn btn-ghost btn-block" href="#agendar">Agendar</a>
+        </div>
+        <p class="hero-note">Atención por WhatsApp en horario de farmacia.</p>
+      </div>
+      <div class="hero-photo reveal">
+        <figure>
+          <img src="assets/img/frente.jpg" alt="Frente de Farmacia Roca de noche, con el cartel azul iluminado" width="720" height="418" fetchpriority="high">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFICIOS ===== -->
+  <section class="section section-soft" id="beneficios" aria-labelledby="beneficios-titulo">
+    <div class="wrap">
+      <p class="kicker">Por qué escribirnos</p>
+      <h2 id="beneficios-titulo">Resolvé la consulta antes de salir de casa</h2>
+      <ul class="benefits">
+        <li class="benefit reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.6-7.2L21 3v6h-6"/></svg></span>
+          <div><h3>Sin vueltas</h3><p>Preguntá si tenemos lo que buscás antes de venir.</p></div>
+        </li>
+        <li class="benefit reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
+          <div><h3>Tu obra social</h3><p>Consultá la cobertura según tu plan y tu receta.</p></div>
+        </li>
+        <li class="benefit reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+          <div><h3>Envío a domicilio</h3><p>En Pueyrredón, Roca y 9 de Julio. Consultá tu zona.</p></div>
+        </li>
+        <li class="benefit reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <div><h3>Atención de barrio</h3><p>Las mismas personas del mostrador, también por mensaje.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section class="section" id="servicios" aria-labelledby="servicios-titulo">
+    <div class="wrap">
+      <p class="kicker">Servicios</p>
+      <h2 id="servicios-titulo">Lo que podés resolver con nosotros</h2>
+      <p class="intro">Atendemos con receta y sin ella. Para cualquier duda sobre tu medicación, consultá con tu médico o con el farmacéutico.</p>
+      <div class="services">
+        <article class="service reveal">
+          <div class="media"><img src="assets/img/obras-sociales-web.png" alt="Obras sociales con las que trabaja Farmacia Roca" width="1254" height="1254" loading="lazy"></div>
+          <div class="body">
+            <h3>Obras sociales</h3>
+            <p>La cobertura depende de tu plan y de la receta. Escribinos antes y te decimos.</p>
+            <ul class="chips" aria-label="Obras sociales">
+              <li>OSDE</li><li>Swiss Medical</li><li>Galeno</li><li>Medifé</li><li>OSDIPP</li><li>ADOS</li><li>SEROS</li>
+            </ul>
+            <a class="more" href="https://wa.me/542976211211?text=Hola%2C%20quiero%20consultar%20por%20la%20cobertura%20de%20mi%20obra%20social." target="_blank" rel="noopener">Consultá tu cobertura →</a>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="media"><img src="assets/img/envios-web.png" alt="Envíos a domicilio en Pueyrredón, Roca y 9 de Julio" width="1254" height="1254" loading="lazy"></div>
+          <div class="body">
+            <h3>Envíos a domicilio</h3>
+            <p>Llegamos a Pueyrredón, Roca y 9 de Julio. Confirmá disponibilidad y zona por WhatsApp.</p>
+            <a class="more" href="https://wa.me/542976211211?text=Hola%2C%20quiero%20consultar%20por%20un%20env%C3%ADo%20a%20domicilio." target="_blank" rel="noopener">Pedí tu envío →</a>
+          </div>
+        </article>
+        <article class="service reveal">
+          <div class="media placeholder" role="img" aria-label="Espacio para foto">Foto de ejemplo: farmacéutico/a tomando la presión a un cliente en el mostrador</div>
+          <div class="body">
+            <h3>Control de presión y glucemia</h3>
+            <p>Hacemos control de tensión arterial y glucemia en la farmacia. Consultá cuándo podés pasar.</p>
+            <a class="more" href="#agendar">Agendar un control →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CÓMO FUNCIONA ===== -->
+  <section class="section section-ink" id="como-funciona" aria-labelledby="pasos-titulo">
+    <div class="wrap">
+      <p class="kicker">Cómo funciona</p>
+      <h2 id="pasos-titulo">Tres pasos, un mensaje</h2>
+      <ol class="steps">
+        <li class="step reveal"><h3>Escribinos</h3><p>Mandanos un WhatsApp o pasá por Polonia 324.</p></li>
+        <li class="step reveal"><h3>Contanos qué necesitás</h3><p>Producto, receta u obra social: con eso podemos responderte.</p></li>
+        <li class="step reveal"><h3>Retiralo o recibilo</h3><p>Pasá a buscarlo o pedí el envío si estás en nuestra zona.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== PREGUNTAS FRECUENTES ===== -->
+  <section class="section" id="preguntas" aria-labelledby="faq-titulo">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">Preguntas frecuentes</p>
+        <h2 id="faq-titulo">Lo que más nos consultan</h2>
+        <p class="intro">¿No está tu pregunta? Escribinos y te respondemos.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Cuáles son los horarios de atención?</summary>
+          <p>Lunes a viernes de 9 a 12 y de 15 a 20 hs. Sábados de 9 a 15 hs.</p>
+        </details>
+        <details>
+          <summary>¿Con qué obras sociales trabajan?</summary>
+          <p>OSDE, Swiss Medical, Galeno, Medifé, OSDIPP, ADOS y SEROS. La cobertura depende de tu plan y de la receta, por eso conviene consultarnos antes por WhatsApp.</p>
+        </details>
+        <details>
+          <summary>¿Hacen envíos a domicilio?</summary>
+          <p>Sí, en Pueyrredón, Roca y 9 de Julio. Consultanos la disponibilidad y la zona de entrega.</p>
+        </details>
+        <details>
+          <summary>¿Controlan la presión y la glucemia?</summary>
+          <p>Sí. Podés pasar por la farmacia o escribirnos para coordinar.</p>
+        </details>
+        <details>
+          <summary>¿Me pueden recomendar un medicamento por WhatsApp?</summary>
+          <p>Por WhatsApp te informamos disponibilidad, precios y cobertura. La indicación de un tratamiento corresponde a tu médico; ante cualquier duda sobre cómo tomar un medicamento, consultá al farmacéutico en el mostrador.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CIERRE =====
+       Alternativa A (activa): "¿Tenés una consulta?" + botón "Escribinos por WhatsApp"
+       Alternativa B: "Ahorrate el viaje: preguntá primero" + botón "Mandanos tu consulta"
+  -->
+  <section class="section section-soft closing" aria-labelledby="cierre-titulo">
+    <div class="wrap">
+      <h2 id="cierre-titulo">¿Tenés una consulta?</h2>
+      <p class="intro">Escribinos ahora y resolvelo antes de salir de casa.</p>
+      <a class="btn btn-wa" href="https://wa.me/542976211211?text=Hola%20Farmacia%20Roca%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+        Escribinos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="section" id="contacto" aria-labelledby="contacto-titulo">
+    <div class="wrap">
+      <p class="kicker">Contacto</p>
+      <h2 id="contacto-titulo">Visitanos o escribinos</h2>
+      <div class="contact-grid">
+        <div class="card reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Dirección</h3>
+          <p>Polonia 324, Comodoro Rivadavia, Chubut.</p>
+          <a class="btn btn-ghost" href="https://maps.app.goo.gl/M22SFPWch15vkdsz8" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <div class="card reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Horarios</h3>
+          <dl class="hours">
+            <dt>Lun a vie</dt><dd>9 a 12 y 15 a 20 hs</dd>
+            <dt>Sábados</dt><dd>9 a 15 hs</dd>
+          </dl>
+        </div>
+        <div class="card reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Teléfono y correo</h3>
+          <ul>
+            <li>WhatsApp: <a href="https://wa.me/542976211211" target="_blank" rel="noopener">297 621-1211</a></li>
+            <li>Teléfono: <a href="tel:+542974484953">297 448-4953</a></li>
+            <li>Correo: <a href="mailto:farmaciaroca2014@gmail.com">farmaciaroca2014@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card secondary reveal" id="agendar">
+          <h3>Agendar</h3>
+          <p>Reservá un horario en la farmacia.</p>
+          <p><span class="todo">[Completar: qué se agenda, por ejemplo control de presión]</span></p>
+          <!-- CALENDARIO -->
+        </div>
+        <div class="card secondary reveal form-card">
+          <h3>Dejanos tu consulta</h3>
+          <p>Si preferís no usar WhatsApp, completá el formulario.</p>
+          <!-- FORMULARIO -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <strong>Farmacia Roca</strong><br>
+      Polonia 324, Comodoro Rivadavia, Chubut.
+    </div>
+    <div>
+      <a href="https://wa.me/542976211211" target="_blank" rel="noopener">WhatsApp 297 621-1211</a><br>
+      <a href="tel:+542974484953">Tel. 297 448-4953</a>
+    </div>
+    <div>
+      <small>Director técnico: <span class="todo">[Completar: farmacéutico/a y matrícula]</span></small><br>
+      <small>© <span id="year">2026</span> Farmacia Roca</small>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  function safe(fn){try{fn()}catch(e){console.warn(e)}}
+
+  safe(function(){var y=document.getElementById("year");if(y)y.textContent=new Date().getFullYear();});
+
+  safe(function(){
+    var top=document.querySelector(".top");if(!top)return;
+    var on=function(){top.classList.toggle("is-scrolled",window.scrollY>8)};
+    on();window.addEventListener("scroll",on,{passive:true});
+  });
+
+  safe(function(){
+    var els=document.querySelectorAll(".reveal");
+    var showAll=function(){els.forEach(function(el){el.classList.add("is-in")})};
+    if(!("IntersectionObserver" in window)){showAll();return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("is-in");io.unobserve(e.target);}});
+    },{threshold:0.05,rootMargin:"0px 0px -40px 0px"});
+    els.forEach(function(el){io.observe(el)});
+    setTimeout(showAll,6000);
+  });
+})();
+</script>
+
+<!-- CHAT -->
+</body>
+</html>
