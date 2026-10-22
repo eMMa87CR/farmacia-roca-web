@@ -125,7 +125,7 @@ p{margin:0}
 .closing .btn{margin-top:24px}
 
 /* Contacto */
-.contact-grid{display:grid;gap:14px;margin-top:28px}
+.contact-grid{display:grid;gap:14px;margin-top:28px;align-items:start}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
 .card h3{font-size:1.08rem;margin-bottom:10px;display:flex;align-items:center;gap:.5rem}
 .card h3 svg{width:20px;height:20px;color:var(--blue)}
@@ -136,6 +136,13 @@ p{margin:0}
 .hours dt{font-weight:700;color:var(--ink)}
 .hours dd{margin:0;color:var(--muted)}
 .card .btn{margin-top:14px}
+.card-media{margin:-20px -20px 18px;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:var(--sand)}
+.card-media img{width:100%;height:100%;object-fit:cover}
+.faq-media{margin-top:24px;max-width:300px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.social{display:flex;gap:10px;margin-top:10px}
+.social a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font-weight:700}
+.social a:hover{text-decoration:underline}
+.social svg{width:20px;height:20px}
 .secondary{border-style:dashed}
 .contact-grid+.contact-grid{margin-top:14px}
 .todo{display:inline-block;background:#fff4d6;color:#7a5200;border:1px dashed #d9a400;border-radius:6px;padding:.05rem .4rem;font-size:.9em;font-weight:700}
@@ -312,6 +319,7 @@ p{margin:0}
         <p class="kicker">Preguntas frecuentes</p>
         <h2 id="faq-titulo">Lo que más nos consultan</h2>
         <p class="intro">¿No está tu pregunta? Escribinos y te respondemos.</p>
+        <div class="faq-media reveal"><img src="assets/img/obra%20sociales.jpg" alt="Obras sociales: Medifé, OSDIPP, Galeno, OSDE, ADOS, Swiss Medical y SEROS" width="1080" height="1080" loading="lazy"></div>
       </div>
       <div class="faq">
         <details>
@@ -360,11 +368,13 @@ p{margin:0}
       <h2 id="contacto-titulo">Visitanos o escribinos</h2>
       <div class="contact-grid">
         <div class="card reveal">
+          <div class="card-media"><img src="assets/img/ubicacion.jpg" alt="Fachada de Farmacia Roca en Avenida Polonia 324" width="1080" height="1080" loading="lazy"></div>
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Dirección</h3>
-          <p>Polonia 324, Comodoro Rivadavia, Chubut.</p>
+          <p>Avda. Polonia 324, Comodoro Rivadavia, Chubut.</p>
           <a class="btn btn-ghost" href="https://maps.app.goo.gl/M22SFPWch15vkdsz8" target="_blank" rel="noopener">Cómo llegar</a>
         </div>
         <div class="card reveal">
+          <div class="card-media"><img src="assets/img/horario%20de%20atencion.jpg" alt="Horarios de atención: lunes a viernes de 9 a 12 y de 15 a 20 hs, sábado de 9 a 15 hs" width="1080" height="1080" loading="lazy"></div>
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Horarios</h3>
           <dl class="hours">
             <dt>Lun a vie</dt><dd>9 a 12 y 15 a 20 hs</dd>
@@ -408,6 +418,10 @@ p{margin:0}
     <div>
       <a href="https://wa.me/542976211211" target="_blank" rel="noopener">WhatsApp 297 621-1211</a><br>
       <a href="tel:+542974484953">Tel. 297 448-4953</a>
+      <div class="social">
+        <a href="https://www.instagram.com/rocafarmacia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+        <a href="https://www.facebook.com/FarmaciaRoca" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8Z"/></svg>Facebook</a>
+      </div>
     </div>
     <div>
       <small>Director técnico: <span class="todo">[Completar: farmacéutico/a y matrícula]</span></small><br>
