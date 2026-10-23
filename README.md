@@ -19,10 +19,16 @@ Abrir `index.html` con doble clic, o servir la carpeta: `python3 -m http.server 
 
 Al cambiar `styles.css` o `main.js`, actualizar `?v=AAAAMMDD` en `index.html`.
 
+## Agendar y consultas
+
+Los dos formularios de Contacto no envían datos a ningún servidor: arman el texto y abren WhatsApp (297 621-1211) para que la persona lo envíe. "Agendar" pide control de presión o glucemia con día y franja horaria (sábado 9 a 15, domingo cerrado); el turno se confirma por WhatsApp. Sin JavaScript, el botón abre el chat sin texto.
+
 ## Espacios reservados
 
 `<!-- FORMULARIO -->`, `<!-- CALENDARIO -->`, `<!-- WHATSAPP -->` y `<!-- CHAT -->` se completan con el sistema que se elija. No modificar su texto.
 
-## Pendiente de confirmar
+## Pendiente antes de publicar
 
-Número de WhatsApp vigente, qué se agenda, director técnico, URLs de Instagram y Facebook, y foto para el control de presión. Los marcadores `[Completar ...]` están visibles en la página.
+- Director técnico y matrícula (marcador `[Completar ...]` visible en el footer).
+- Reemplazar la foto de stock de la tarjeta de control de presión (se carga desde Unsplash) por una foto propia.
+- Dominio, hosting y Google Business Profile.

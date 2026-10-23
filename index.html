@@ -12,7 +12,7 @@
 <link rel="icon" href="assets/img/icono.webp" type="image/webp">
 <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/fachada-noche.webp" as="image">
-<link rel="stylesheet" href="styles.css?v=20261023">
+<link rel="stylesheet" href="styles.css?v=20261023b">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -240,14 +240,63 @@
         </div>
 
         <div class="card card-soft reveal" id="agendar">
-          <h3>Agendar</h3>
-          <p>Reservá un horario en la farmacia.</p>
-          <p><span class="todo">[Completar: qué se agenda, por ejemplo control de presión]</span></p>
+          <h3>Agendar un control</h3>
+          <p>Elegí el control, el día y el horario. Se abre WhatsApp con el pedido listo y te confirmamos el turno.</p>
+          <form class="wa-form" data-wa-form="agendar" action="https://wa.me/542976211211" method="get" target="_blank" novalidate>
+            <div class="field">
+              <label for="ag-nombre">Tu nombre</label>
+              <input id="ag-nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="60">
+            </div>
+            <div class="field">
+              <label for="ag-control">Control</label>
+              <select id="ag-control" name="control" required>
+                <option value="control de presión">Presión arterial</option>
+                <option value="control de glucemia">Glucemia</option>
+              </select>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="ag-dia">Día</label>
+                <input id="ag-dia" name="dia" type="date" required>
+              </div>
+              <div class="field">
+                <label for="ag-franja">Horario</label>
+                <select id="ag-franja" name="franja" required>
+                  <option value="a la mañana (9 a 12 hs)">Mañana · 9 a 12</option>
+                  <option value="a la tarde (15 a 20 hs)">Tarde · 15 a 20</option>
+                </select>
+              </div>
+            </div>
+            <p class="form-error" role="alert" aria-live="polite"></p>
+            <button class="btn btn-deep" type="submit">Pedir turno por WhatsApp</button>
+            <p class="form-note">Es un pedido: el turno queda firme cuando te respondemos. Domingos cerrado.</p>
+          </form>
           <!-- CALENDARIO -->
         </div>
         <div class="card card-soft span-2 reveal">
           <h3>Dejanos tu consulta</h3>
-          <p>Si preferís no usar WhatsApp, completá el formulario.</p>
+          <p>Escribí tu consulta y se abre WhatsApp con el mensaje listo para enviar. No guardamos ningún dato en esta página.</p>
+          <form class="wa-form" data-wa-form="consulta" action="https://wa.me/542976211211" method="get" target="_blank" novalidate>
+            <div class="field">
+              <label for="cq-nombre">Tu nombre</label>
+              <input id="cq-nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="60">
+            </div>
+            <div class="field">
+              <label for="cq-tema">Tema</label>
+              <select id="cq-tema" name="tema">
+                <option value="disponibilidad de un producto">Disponibilidad de un producto</option>
+                <option value="cobertura de mi obra social">Cobertura de obra social</option>
+                <option value="envío a domicilio">Envío a domicilio</option>
+                <option value="otra consulta">Otra consulta</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cq-mensaje">Tu consulta</label>
+              <textarea id="cq-mensaje" name="mensaje" rows="4" required maxlength="600" placeholder="Ej.: ¿Tienen protector solar factor 50?"></textarea>
+            </div>
+            <p class="form-error" role="alert" aria-live="polite"></p>
+            <button class="btn btn-deep" type="submit">Enviar por WhatsApp</button>
+          </form>
           <!-- FORMULARIO -->
         </div>
       </div>
@@ -283,8 +332,8 @@
 
 <!-- WHATSAPP -->
 
-<script defer src="lib/manifest.js?v=20261023"></script>
-<script defer src="main.js?v=20261023"></script>
+<script defer src="lib/manifest.js?v=20261023b"></script>
+<script defer src="main.js?v=20261023b"></script>
 
 <!-- CHAT -->
 </body>
