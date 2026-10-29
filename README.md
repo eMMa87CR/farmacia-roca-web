@@ -6,7 +6,7 @@ Sitio de una página de Farmacia Roca (Avda. Polonia 324, Comodoro Rivadavia), o
 
 - `index.html`, `styles.css`, `main.js`: el sitio. HTML, CSS y JS sin build ni dependencias.
 - `lib/manifest.js`: datos de la farmacia en `window.__BRAND__` (WhatsApp, horarios, obras sociales).
-- `assets/img/*.webp`: imágenes del sitio. Los `.jpg` y `.png` originales quedan para el sitio anterior.
+- `assets/img/*.webp`: imágenes del sitio. `frente-dia.webp` (fondo del hero) sale de `foto frente.jpg`. Los `.jpg` y `.png` originales quedan para el sitio anterior.
 - `assets/fonts/`: Manrope local.
 - `.htaccess`: caché para Hostinger o Apache. GitHub Pages lo ignora.
 - `anterior/`: sitio anterior de seis páginas, archivado. No se enlaza desde el sitio nuevo.
@@ -30,5 +30,4 @@ Los dos formularios de Contacto no envían datos a ningún servidor: arman el te
 ## Pendiente antes de publicar
 
 - Director técnico y matrícula (marcador `[Completar ...]` visible en el footer).
-- Reemplazar la foto de stock de la tarjeta de control de presión (se carga desde Unsplash) por una foto propia.
 - Dominio, hosting y Google Business Profile.
